@@ -1,6 +1,9 @@
 use clap::{Args, Parser, Subcommand};
 
-use crate::{geometry::check_wkb, overture_types::get_schema_json};
+use crate::{
+    geometry::check_wkb,
+    overture_types::{get_schema_json, schema_types},
+};
 
 mod geometry;
 mod overture_types;
@@ -17,6 +20,7 @@ struct Cli {
 enum Commands {
     CheckWkb(CheckWkbArgs),
     Schema,
+    Schemafy,
 }
 
 #[derive(Args)]
@@ -39,6 +43,11 @@ async fn main() {
             println!("Schema start");
             get_schema_json();
             println!("Schema end");
+        }
+        Commands::Schemafy => {
+            println!("Schemafy start");
+            schema_types();
+            println!("Schemafy end");
         }
     }
 }

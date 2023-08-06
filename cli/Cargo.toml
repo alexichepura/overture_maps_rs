@@ -14,3 +14,4 @@ tokio = { workspace = true, features = ["full"] }
 schemafy = "0.6.0"
 serde_yaml = "0.9.25"
 walkdir = "2.3.3"
+schemafy_lib = "0.6.0"

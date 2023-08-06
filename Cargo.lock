@@ -526,6 +526,7 @@ dependencies = [
  "geo-types",
  "geozero",
  "schemafy",
+ "schemafy_lib",
  "serde",
  "serde_json",
  "serde_yaml",

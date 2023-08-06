@@ -16,7 +16,7 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     CheckWkb(CheckWkbArgs),
-    SchemaJson,
+    Schema,
 }
 
 #[derive(Args)]
@@ -35,10 +35,10 @@ async fn main() {
             check_wkb(bytes_array.as_slice());
             println!("Check WKB end");
         }
-        Commands::SchemaJson => {
-            println!("SchemaJson start");
+        Commands::Schema => {
+            println!("Schema start");
             get_schema_json();
-            println!("SchemaJson end");
+            println!("Schema end");
         }
     }
 }

@@ -18,7 +18,7 @@ pub fn get_schema_json() {
         let path_relative = path_string.replace(schema_path, "");
         let name = entry.file_name();
         let name_str = name.to_str().expect("name_str");
-        println!("{:?} {} {:?}", &is_dir, &path, &name_str);
+        // println!("{:?} {} {:?}", &is_dir, &path, &name_str);
         let rel = path_relative.replace(name_str, "");
         let json_name_str = name_str.replace(".yaml", ".json");
         let save_dir = format!("./schema{rel}");
@@ -33,9 +33,10 @@ pub fn get_schema_json() {
             let schema_string = serde_json::to_string_pretty(&json_value).expect("Schema string");
             // let schema_string = serde_json::to_string(&json_value).expect("Schema string");
 
-            // let schema_string = schema_string.replace(".yaml", ".json");
+            let schema_string = schema_string.replace("defs.yaml", "defs.json");
+            let schema_string = schema_string.replace(".yaml", ".json");
             let save_path = format!("{save_dir}{json_name_str}");
-            println!("{save_dir}:{save_path}");
+            // println!("{save_dir}:{save_path}");
             fs::write(save_path, schema_string).expect("Unable to write file");
         }
     }

@@ -1,0 +1,2 @@
+[alias]
+cli = "r -r -p=overture_maps_cli --"
